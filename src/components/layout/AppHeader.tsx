@@ -1,9 +1,9 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 import { APP_NAME } from '@/lib/constants';
-import { Handshake } from 'lucide-react'; // Or any other suitable logo icon
 
 export function AppHeader() {
   const { isMobile } = useSidebar();
@@ -14,7 +14,7 @@ export function AppHeader() {
         <div className="flex items-center gap-2">
           {(isMobile) && <SidebarTrigger />}
           <Link href="/" className="flex items-center gap-2">
-            <Handshake className="h-7 w-7 text-primary" />
+            <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={28} height={28} className="h-7 w-7" />
             <span className="text-xl font-bold text-foreground">{APP_NAME}</span>
           </Link>
         </div>
