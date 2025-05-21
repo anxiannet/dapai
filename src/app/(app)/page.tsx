@@ -33,12 +33,12 @@ export default function DashboardPage() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6 text-foreground">热门服务</h2>
-        <div className="flex items-stretch space-x-4">
+        <div className="flex items-stretch space-x-0"> {/* Removed space-x-2, now space-x-0 or remove entirely for no gap */}
           <ScrollArea className="w-0 flex-grow min-w-0 md:max-w-2xl rounded-md border shadow-sm">
-            <div className="flex w-max p-4">
+            <div className="flex w-max p-0"> {/* Changed p-4 to p-0, or adjust if very small padding needed */}
               {popularServices.map((service) => (
                 <Link href={service.href} key={service.name}>
-                  <div className="flex flex-col items-center justify-start p-1 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer border border-transparent hover:border-primary/30">
+                  <div className="flex flex-col items-center justify-start p-0 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer border border-transparent hover:border-primary/30">
                     <service.icon className="h-8 w-8 text-primary mb-2 shrink-0" />
                     <span className="text-sm font-medium text-foreground whitespace-nowrap overflow-hidden text-ellipsis w-full">{service.name}</span>
                   </div>
@@ -48,7 +48,7 @@ export default function DashboardPage() {
             <ScrollBar orientation="horizontal" className="hidden"/>
           </ScrollArea>
           <Link href="/services" className="shrink-0">
-            <div className="flex flex-col items-center justify-center p-1 rounded-lg bg-primary text-primary-foreground hover:bg-primary-hover transition-colors w-28 h-32 text-center cursor-pointer shadow-md">
+            <div className="flex flex-col items-center justify-center p-0 rounded-lg bg-primary text-primary-foreground hover:bg-primary-hover transition-colors w-28 h-32 text-center cursor-pointer shadow-md">
               <PlusCircle className="h-8 w-8 mb-2 shrink-0" />
               <span className="text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis w-full">更多服务</span>
             </div>
