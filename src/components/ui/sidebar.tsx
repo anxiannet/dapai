@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -204,7 +205,7 @@ const Sidebar = React.forwardRef<
                 "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
               } as React.CSSProperties
             }
-            side={side}
+            side="right" // Changed to "right" for mobile
           >
             <SheetHeader className="sr-only">
               <SheetTitle>导航</SheetTitle>
@@ -764,3 +765,5 @@ export {
   SidebarTrigger,
   useSidebar,
 }
+
+    
