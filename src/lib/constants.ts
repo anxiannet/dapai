@@ -11,7 +11,7 @@ export interface NavItem {
 export const APP_NAME = "达派";
 
 export const NAV_ITEMS: NavItem[] = [
-  { href: '/', label: '仪表盘', icon: Home, matchExact: true },
+  { href: '/', label: '首页', icon: Home, matchExact: true },
   { href: '/post-demand', label: '发布需求', icon: PlusCircle },
   { href: '/talents', label: '发现人才', icon: Users },
   { href: '/review-analyzer', label: '点评分析', icon: BotMessageSquare },
