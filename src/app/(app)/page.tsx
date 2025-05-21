@@ -35,7 +35,7 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-semibold mb-6 text-foreground">热门服务</h2>
         <div className="flex items-stretch space-x-4">
           <ScrollArea className="w-0 flex-grow min-w-0 md:max-w-2xl rounded-md border shadow-sm">
-            <div className="flex w-max space-x-2 p-4"> {/* Changed space-x-4 to space-x-2 */}
+            <div className="flex w-max p-4"> {/* Removed space-x-2 */}
               {popularServices.map((service) => (
                 <Link href={service.href} key={service.name}>
                   <div className="flex flex-col items-center justify-start p-3 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer border border-transparent hover:border-primary/30">
