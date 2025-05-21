@@ -34,7 +34,7 @@ export default function DashboardPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6 text-foreground">热门服务</h2>
         <div className="flex items-stretch space-x-4">
-          <ScrollArea className="flex-grow min-w-0 whitespace-nowrap rounded-md border shadow-sm">
+          <ScrollArea className="flex-grow min-w-0 max-w-2xl whitespace-nowrap rounded-md border shadow-sm">
             <div className="flex w-max space-x-4 p-4">
               {popularServices.map((service) => (
                 <Link href={service.href} key={service.name}>
