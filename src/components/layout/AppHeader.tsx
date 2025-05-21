@@ -15,8 +15,14 @@ export function AppHeader() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2">
           {(isMobile) && <SidebarTrigger />}
-          <Link href="/" className="flex items-center"> {/* Removed gap as text is gone */}
-            <Image src={`/logo.png?${logoCacheBuster}`} alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
+          <Link href="/" className="flex items-center">
+            <Image 
+              src={`/logo.png?${logoCacheBuster}`} 
+              alt={`${APP_NAME} Logo`} 
+              width={36} 
+              height={36} 
+              className="h-9 w-auto" // Changed w-9 to w-auto
+            />
           </Link>
         </div>
         {/* Placeholder for User Profile / Actions */}

@@ -25,12 +25,24 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
        <SidebarHeader className="p-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center group-data-[collapsible=icon]:hidden"> {/* Removed gap as text is gone */}
-            <Image src={`/logo.png?${logoCacheBuster}`} alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
+          <Link href="/" className="flex items-center group-data-[collapsible=icon]:hidden">
+            <Image 
+              src={`/logo.png?${logoCacheBuster}`} 
+              alt={`${APP_NAME} Logo`} 
+              width={36} 
+              height={36} 
+              className="h-9 w-auto" // Changed w-9 to w-auto
+            />
           </Link>
           <div className="hidden group-data-[collapsible=icon]:block">
              <Link href="/" className="flex items-center">
-                <Image src={`/logo.png?${logoCacheBuster}`} alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
+                <Image 
+                  src={`/logo.png?${logoCacheBuster}`} 
+                  alt={`${APP_NAME} Logo`} 
+                  width={36} 
+                  height={36} 
+                  className="h-9 w-auto" // Changed w-9 to w-auto
+                />
              </Link>
           </div>
           <div className="md:hidden">
