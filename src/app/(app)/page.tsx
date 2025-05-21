@@ -33,25 +33,27 @@ export default function DashboardPage() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6 text-foreground">热门服务</h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-md border shadow-sm">
-          <div className="flex w-max space-x-4 p-4">
-            {popularServices.map((service) => (
-              <Link href={service.href} key={service.name}>
-                <div className="flex flex-col items-center justify-start p-3 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer border border-transparent hover:border-primary/30">
-                  <service.icon className="h-10 w-10 text-primary mb-2 shrink-0" />
-                  <span className="text-sm font-medium text-foreground line-clamp-2">{service.name}</span>
-                </div>
-              </Link>
-            ))}
-            <Link href="/services">
-              <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary-hover transition-colors w-28 h-32 text-center cursor-pointer shadow-md">
-                <PlusCircle className="h-10 w-10 mb-2 shrink-0" />
-                <span className="text-sm font-medium line-clamp-2">更多服务</span>
-              </div>
-            </Link>
-          </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
+        <div className="flex items-stretch space-x-4">
+          <ScrollArea className="flex-grow min-w-0 whitespace-nowrap rounded-md border shadow-sm">
+            <div className="flex w-max space-x-4 p-4">
+              {popularServices.map((service) => (
+                <Link href={service.href} key={service.name}>
+                  <div className="flex flex-col items-center justify-start p-3 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer border border-transparent hover:border-primary/30">
+                    <service.icon className="h-10 w-10 text-primary mb-2 shrink-0" />
+                    <span className="text-sm font-medium text-foreground line-clamp-2">{service.name}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+          <Link href="/services" className="shrink-0">
+            <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary-hover transition-colors w-28 h-32 text-center cursor-pointer shadow-md">
+              <PlusCircle className="h-10 w-10 mb-2 shrink-0" />
+              <span className="text-sm font-medium line-clamp-2">更多服务</span>
+            </div>
+          </Link>
+        </div>
       </section>
       
       <section className="mb-12">
