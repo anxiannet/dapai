@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -15,10 +16,10 @@ import {
 import { NAV_ITEMS, APP_NAME } from "@/lib/constants";
 import { NavLink } from "./NavLink";
 import Link from "next/link";
+import { X } from 'lucide-react'; // Import X icon
 
 export function AppSidebar() {
   const { setOpenMobile, isMobile: sidebarIsMobileHook } = useSidebar(); 
-  // const logoCacheBuster = `v=${new Date().getTime()}`; // Removed for stability and to prevent hydration issues
 
   return (
     <Sidebar collapsible="icon">
@@ -45,7 +46,7 @@ export function AppSidebar() {
              </Link>
           </div>
           <div className="md:hidden">
-            <SidebarTrigger onClick={() => setOpenMobile(false)} />
+            <SidebarTrigger onClick={() => setOpenMobile(false)} icon={<X className="h-4 w-4" />} />
           </div>
         </div>
       </SidebarHeader>

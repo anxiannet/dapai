@@ -4,7 +4,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
-import { PanelLeft } from "lucide-react"
+import { PanelLeft, X } from "lucide-react" // Import X icon
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
@@ -205,7 +205,7 @@ const Sidebar = React.forwardRef<
                 "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
               } as React.CSSProperties
             }
-            side="right" // Changed to "right" for mobile
+            side="right" 
           >
             <SheetHeader className="sr-only">
               <SheetTitle>导航</SheetTitle>
@@ -265,8 +265,8 @@ Sidebar.displayName = "Sidebar"
 
 const SidebarTrigger = React.forwardRef<
   React.ElementRef<typeof Button>,
-  React.ComponentProps<typeof Button>
->(({ className, onClick, ...props }, ref) => {
+  React.ComponentProps<typeof Button> & { icon?: React.ReactNode }
+>(({ className, onClick, icon, ...props }, ref) => {
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -277,12 +277,15 @@ const SidebarTrigger = React.forwardRef<
       size="icon"
       className={cn("h-7 w-7", className)}
       onClick={(event) => {
-        onClick?.(event)
-        toggleSidebar()
+        if (onClick) {
+          onClick(event);
+        } else {
+          toggleSidebar();
+        }
       }}
       {...props}
     >
-      <PanelLeft />
+      {icon || <PanelLeft />}
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )
@@ -765,5 +768,3 @@ export {
   SidebarTrigger,
   useSidebar,
 }
-
-    
