@@ -15,7 +15,7 @@ export function AppHeader() {
         <div className="flex items-center gap-2">
           {(isMobile) && <SidebarTrigger />}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={28} height={28} className="h-7 w-7" />
+            <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
             <span className="text-xl font-bold text-foreground">{APP_NAME}</span>
           </Link>
         </div>
@@ -27,3 +27,4 @@ export function AppHeader() {
     </header>
   );
 }
+
