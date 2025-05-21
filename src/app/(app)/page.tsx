@@ -1,11 +1,25 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageTitle } from '@/components/PageTitle';
 import { PageWrapper } from '@/components/layout/PageWrapper';
 import { NAV_ITEMS } from '@/lib/constants';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Truck, Sparkles, Wrench, Bike, Dog, GraduationCap, Camera, Paintbrush, Languages, PlusCircle } from 'lucide-react';
 import Image from 'next/image';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+
+const popularServices = [
+  { name: '搬家服务', icon: Truck, href: '/services/moving' },
+  { name: '日常保洁', icon: Sparkles, href: '/services/cleaning' },
+  { name: '家电维修', icon: Wrench, href: '/services/repairs' },
+  { name: '跑腿代办', icon: Bike, href: '/services/errands' },
+  { name: '宠物遛养', icon: Dog, href: '/services/pet-walking' },
+  { name: '学业辅导', icon: GraduationCap, href: '/services/tutoring' },
+  { name: '摄影摄像', icon: Camera, href: '/services/photography' },
+  { name: '平面设计', icon: Paintbrush, href: '/services/design' },
+  { name: '语言翻译', icon: Languages, href: '/services/translation' },
+];
 
 export default function DashboardPage() {
   const features = NAV_ITEMS.filter(item => item.href !== '/');
@@ -16,6 +30,29 @@ export default function DashboardPage() {
         title="欢迎来到达派！"
         description="找专业的人，办专业的事。"
       />
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-6 text-foreground">热门服务</h2>
+        <ScrollArea className="w-full whitespace-nowrap rounded-md border shadow-sm">
+          <div className="flex w-max space-x-4 p-4">
+            {popularServices.map((service) => (
+              <Link href={service.href} key={service.name}>
+                <div className="flex flex-col items-center justify-start p-3 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer border border-transparent hover:border-primary/30">
+                  <service.icon className="h-10 w-10 text-primary mb-2 shrink-0" />
+                  <span className="text-sm font-medium text-foreground line-clamp-2">{service.name}</span>
+                </div>
+              </Link>
+            ))}
+            <Link href="/services">
+              <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary-hover transition-colors w-28 h-32 text-center cursor-pointer shadow-md">
+                <PlusCircle className="h-10 w-10 mb-2 shrink-0" />
+                <span className="text-sm font-medium line-clamp-2">更多服务</span>
+              </div>
+            </Link>
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+      </section>
       
       <section className="mb-12">
         <Card className="shadow-lg">
