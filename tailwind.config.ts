@@ -22,7 +22,8 @@ export default {
   			},
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				foreground: 'hsl(var(--primary-foreground))',
+          hover: 'hsl(var(--primary-hover))'
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
@@ -40,6 +41,10 @@ export default {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
+        cta: {
+          DEFAULT: 'hsl(var(--cta))',
+          foreground: 'hsl(var(--cta-foreground))'
+        },
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
@@ -66,6 +71,10 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+      fontFamily: {
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+      },
   		keyframes: {
   			'accordion-down': {
   				from: {
