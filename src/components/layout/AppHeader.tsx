@@ -16,7 +16,7 @@ export function AppHeader() {
           {(isMobile) && <SidebarTrigger />}
           <Link href="/" className="flex items-center gap-1.5"> {/* Adjusted gap */}
             <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
-            <span className="text-xl font-bold text-foreground tracking-wide">{APP_NAME}</span> {/* Added tracking-wide */}
+            <span className="text-xl font-bold text-primary tracking-wide">{APP_NAME}</span> {/* Changed text-foreground to text-primary */}
           </Link>
         </div>
         {/* Placeholder for User Profile / Actions */}
@@ -27,3 +27,4 @@ export function AppHeader() {
     </header>
   );
 }
+
