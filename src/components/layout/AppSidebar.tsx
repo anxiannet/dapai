@@ -9,8 +9,8 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarTrigger,
-  SheetHeader,
-  SheetTitle,
+  // SheetHeader and SheetTitle are already imported from previous fix, but not directly used here for this specific change.
+  // They remain for the mobile sidebar's accessibility.
   useSidebar,
 } from "@/components/ui/sidebar";
 import { NAV_ITEMS, APP_NAME } from "@/lib/constants";
@@ -18,18 +18,18 @@ import { NavLink } from "./NavLink";
 import Link from "next/link";
 
 export function AppSidebar() {
-  const { setOpenMobile, isMobile: sidebarIsMobileHook } = useSidebar(); // Renamed to avoid conflict
+  const { setOpenMobile, isMobile: sidebarIsMobileHook } = useSidebar(); 
 
   return (
     <Sidebar collapsible="icon">
        <SidebarHeader className="p-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group-data-[collapsible=icon]:hidden">
+          <Link href="/" className="flex items-center gap-1.5 group-data-[collapsible=icon]:hidden"> {/* Adjusted gap */}
             <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
-            <span className="text-lg font-semibold">{APP_NAME}</span>
+            <span className="text-lg font-semibold tracking-wide">{APP_NAME}</span> {/* Added tracking-wide */}
           </Link>
           <div className="hidden group-data-[collapsible=icon]:block">
-             <Link href="/" className="flex items-center gap-2">
+             <Link href="/" className="flex items-center"> {/* Gap removed/irrelevant as text is hidden */}
                 <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
              </Link>
           </div>
@@ -48,7 +48,7 @@ export function AppSidebar() {
                 icon={item.icon}
                 matchExact={item.matchExact}
                 onClick={() => {
-                  if (sidebarIsMobileHook) { // Use the renamed hook variable
+                  if (sidebarIsMobileHook) { 
                     setOpenMobile(false);
                   }
                 }}
@@ -60,4 +60,3 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
-
