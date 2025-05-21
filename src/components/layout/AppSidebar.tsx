@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -8,6 +9,8 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarTrigger,
+  SheetHeader,
+  SheetTitle,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { NAV_ITEMS, APP_NAME } from "@/lib/constants";
@@ -15,11 +18,11 @@ import { NavLink } from "./NavLink";
 import Link from "next/link";
 
 export function AppSidebar() {
-  const { setOpenMobile } = useSidebar();
+  const { setOpenMobile, isMobile: sidebarIsMobileHook } = useSidebar(); // Renamed to avoid conflict
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="p-4">
+       <SidebarHeader className="p-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group-data-[collapsible=icon]:hidden">
             <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={28} height={28} className="h-7 w-7" />
@@ -45,7 +48,7 @@ export function AppSidebar() {
                 icon={item.icon}
                 matchExact={item.matchExact}
                 onClick={() => {
-                  if (useSidebar().isMobile) {
+                  if (sidebarIsMobileHook) { // Use the renamed hook variable
                     setOpenMobile(false);
                   }
                 }}
