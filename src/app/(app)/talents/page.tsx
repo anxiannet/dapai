@@ -10,18 +10,18 @@ export default function TalentsPage() {
   return (
     <PageWrapper>
       <PageTitle
-        title="Find Talents"
-        description="Browse skilled individuals ready to help with your tasks."
+        title="发现人才"
+        description="浏览准备好协助您完成任务的专业人士。"
       />
       
       <div className="mb-6 flex flex-col sm:flex-row gap-4">
         <div className="relative flex-grow">
-          <Input type="search" placeholder="Search by skill, name, or location..." className="pl-10" />
+          <Input type="search" placeholder="按技能、姓名或地点搜索..." className="pl-10" />
           <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
         </div>
         <Button variant="outline">
           <Filter className="mr-2 h-4 w-4" />
-          Filters
+          筛选
         </Button>
       </div>
 
@@ -33,8 +33,8 @@ export default function TalentsPage() {
         </div>
       ) : (
         <div className="text-center py-12">
-          <p className="text-xl text-muted-foreground">No talents found matching your criteria.</p>
-          <p className="text-sm text-muted-foreground mt-2">Try adjusting your search or filters.</p>
+          <p className="text-xl text-muted-foreground">未找到符合您条件的人才。</p>
+          <p className="text-sm text-muted-foreground mt-2">请尝试调整您的搜索或筛选条件。</p>
         </div>
       )}
     </PageWrapper>

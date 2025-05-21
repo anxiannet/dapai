@@ -13,15 +13,15 @@ export default function DashboardPage() {
   return (
     <PageWrapper>
       <PageTitle 
-        title="Welcome to SkillShare Connect!"
-        description="Your platform to find and offer skills within your community."
+        title="欢迎来到达派！"
+        description="找专业的人，办专业的事。"
       />
       
       <section className="mb-12">
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl">Get Started</CardTitle>
-            <CardDescription>Explore the features of SkillShare Connect.</CardDescription>
+            <CardTitle className="text-2xl">快速开始</CardTitle>
+            <CardDescription>探索达派的核心功能。</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -34,12 +34,12 @@ export default function DashboardPage() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground mb-4">
-                        {feature.label === 'Post a Demand' && 'Need help with a task? Post your requirements here.'}
-                        {feature.label === 'Find Talents' && 'Discover skilled individuals ready to assist you.'}
-                        {feature.label === 'Review Analyzer' && 'Get AI-powered insights from service provider reviews.'}
+                        {feature.label === '发布需求' && '需要帮忙？在这里发布您的需求。'}
+                        {feature.label === '发现人才' && '发现身怀绝技的专业人士。'}
+                        {feature.label === '点评分析' && '获取AI驱动的服务点评分析洞察。'}
                       </p>
                       <Button variant="link" className="px-0 text-primary">
-                        Go to {feature.label} <ArrowRight className="ml-2 h-4 w-4" />
+                        前往 {feature.label} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </CardContent>
                   </Card>
@@ -56,7 +56,7 @@ export default function DashboardPage() {
             <div className="md:w-1/2">
               <Image 
                 src="https://placehold.co/600x400.png" 
-                alt="Community Collaboration" 
+                alt="社区协作" 
                 width={600} 
                 height={400} 
                 className="h-full w-full object-cover"
@@ -64,17 +64,17 @@ export default function DashboardPage() {
               />
             </div>
             <div className="md:w-1/2 p-8 flex flex-col justify-center">
-              <h3 className="text-2xl font-semibold mb-3 text-foreground">Empowering Connections</h3>
+              <h3 className="text-2xl font-semibold mb-3 text-foreground">赋能连接</h3>
               <p className="text-muted-foreground mb-6">
-                SkillShare Connect is designed to bridge the gap between those who need services and those who can provide them. 
-                Join our growing community and make meaningful connections.
+                达派旨在连接有服务需求的用户和能提供服务的专业人士。 
+                加入我们不断壮大的社区，建立有意义的连接。
               </p>
               <div className="flex gap-4">
-                <Link href={NAV_ITEMS.find(item => item.label === 'Post a Demand')?.href || '/'} passHref>
-                  <Button variant="cta">Post Your First Demand</Button>
+                <Link href={NAV_ITEMS.find(item => item.label === '发布需求')?.href || '/'} passHref>
+                  <Button variant="cta">发布您的第一个需求</Button>
                 </Link>
-                <Link href={NAV_ITEMS.find(item => item.label === 'Find Talents')?.href || '/'} passHref>
-                  <Button variant="outline">Browse Talents</Button>
+                <Link href={NAV_ITEMS.find(item => item.label === '发现人才')?.href || '/'} passHref>
+                  <Button variant="outline">浏览人才</Button>
                 </Link>
               </div>
             </div>

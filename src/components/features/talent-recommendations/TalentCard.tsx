@@ -12,7 +12,17 @@ interface TalentCardProps {
 
 // Helper to get initials from name
 const getInitials = (name: string) => {
+  if (!name) return '';
   const names = name.split(' ');
+  // For Chinese names, usually take the last one or two characters.
+  // This is a simple heuristic, might need refinement for complex names.
+  if (/[\u4e00-\u9fa5]/.test(name)) {
+    if (names.length > 0) {
+      const lastName = names[names.length - 1];
+      return lastName.length > 1 ? lastName.substring(lastName.length - 2) : lastName;
+    }
+  }
+  // For non-Chinese names
   if (names.length > 1) {
     return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
   }
@@ -36,37 +46,37 @@ export function TalentCard({ talent }: TalentCardProps) {
           <div className="flex items-center text-sm">
             <Star className="h-4 w-4 mr-1 text-yellow-400 fill-yellow-400" /> 
             {talent.rating.toFixed(1)} 
-            <span className="text-muted-foreground ml-1">({talent.serviceHistoryCount} services)</span>
+            <span className="text-muted-foreground ml-1">({talent.serviceHistoryCount} 次服务)</span>
           </div>
         </div>
       </CardHeader>
       <CardContent className="flex-grow">
         <p className="text-sm text-muted-foreground mb-3 h-16 overflow-hidden text-ellipsis">
-          {talent.description || "No description available."}
+          {talent.description || "暂无描述。"}
         </p>
         <div className="mb-3">
-          <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-1">Skills</h4>
+          <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-1">技能</h4>
           <div className="flex flex-wrap gap-1">
             {talent.skills && talent.skills.length > 0 ? (
               talent.skills.slice(0, 5).map((skill) => (
                 <Badge key={skill} variant="secondary" className="text-xs bg-accent/20 text-accent-foreground border-accent/30">{skill}</Badge>
               ))
             ) : (
-              <span className="text-xs text-muted-foreground">No skills listed.</span>
+              <span className="text-xs text-muted-foreground">未列出技能。</span>
             )}
-            {talent.skills && talent.skills.length > 5 && <Badge variant="outline">+{talent.skills.length - 5} more</Badge>}
+            {talent.skills && talent.skills.length > 5 && <Badge variant="outline">+{talent.skills.length - 5} 更多</Badge>}
           </div>
         </div>
         {talent.reviewsSummary && (
            <div>
-             <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-1">Review Highlight</h4>
+             <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-1">点评摘要</h4>
              <p className="text-xs text-muted-foreground italic">"{talent.reviewsSummary}"</p>
            </div>
         )}
       </CardContent>
       <CardFooter>
         <Button variant="outline" className="w-full">
-          View Profile
+          查看资料
         </Button>
       </CardFooter>
     </Card>

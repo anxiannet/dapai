@@ -7,13 +7,13 @@ export default function PostDemandPage() {
   return (
     <PageWrapper>
       <PageTitle
-        title="Post a New Demand"
-        description="Let the community know what help you need. Fill out the details below."
+        title="发布新需求"
+        description="让社区了解您需要什么帮助。请填写以下详细信息。"
       />
       <Card className="max-w-2xl mx-auto shadow-lg">
         <CardHeader>
-          <CardTitle>Demand Details</CardTitle>
-          <CardDescription>Provide as much information as possible for the best matches.</CardDescription>
+          <CardTitle>需求详情</CardTitle>
+          <CardDescription>请提供尽可能详细的信息，以便获得最佳匹配。</CardDescription>
         </CardHeader>
         <CardContent>
           <DemandForm />

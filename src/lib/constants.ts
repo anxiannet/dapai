@@ -8,13 +8,13 @@ export interface NavItem {
   matchExact?: boolean;
 }
 
-export const APP_NAME = "SkillShare Connect";
+export const APP_NAME = "达派";
 
 export const NAV_ITEMS: NavItem[] = [
-  { href: '/', label: 'Dashboard', icon: Home, matchExact: true },
-  { href: '/post-demand', label: 'Post a Demand', icon: PlusCircle },
-  { href: '/talents', label: 'Find Talents', icon: Users },
-  { href: '/review-analyzer', label: 'Review Analyzer', icon: BotMessageSquare },
+  { href: '/', label: '仪表盘', icon: Home, matchExact: true },
+  { href: '/post-demand', label: '发布需求', icon: PlusCircle },
+  { href: '/talents', label: '发现人才', icon: Users },
+  { href: '/review-analyzer', label: '点评分析', icon: BotMessageSquare },
 ];
 
 export const ROUTES = {

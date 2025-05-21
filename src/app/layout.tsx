@@ -8,8 +8,8 @@ const geistSans = GeistSans; // Use direct import if specific subset/variable is
 const geistMono = GeistMono;
 
 export const metadata: Metadata = {
-  title: 'SkillShare Connect',
-  description: 'Connect with skilled individuals for your needs.',
+  title: '达派',
+  description: '找专业的人，办专业的事。',
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="zh-CN" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         {children}
         <Toaster />

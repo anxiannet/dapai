@@ -6,8 +6,8 @@ export default function ReviewAnalyzerPage() {
   return (
     <PageWrapper>
       <PageTitle
-        title="Review Insights"
-        description="Leverage AI to understand service provider reliability from user reviews."
+        title="点评洞察"
+        description="利用AI从用户点评中了解服务提供商的可靠性。"
       />
       <ReviewAnalyzerClient />
     </PageWrapper>
