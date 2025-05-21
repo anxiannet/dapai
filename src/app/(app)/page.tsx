@@ -38,7 +38,7 @@ export default function DashboardPage() {
             <div className="flex w-max p-0">
               {popularServices.map((service) => (
                 <Link href={service.href} key={service.name}>
-                  <div className="flex flex-col items-center justify-start p-0 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer border border-transparent hover:border-primary/30">
+                  <div className="flex flex-col items-center justify-start p-0 rounded-lg hover:bg-accent/10 transition-colors w-28 h-32 text-center cursor-pointer hover:border-primary/30">
                     <service.icon className="h-8 w-8 text-primary shrink-0" />
                     <span className="text-sm font-medium text-foreground whitespace-nowrap overflow-hidden text-ellipsis w-full">{service.name}</span>
                   </div>
