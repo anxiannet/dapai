@@ -19,18 +19,19 @@ import Link from "next/link";
 
 export function AppSidebar() {
   const { setOpenMobile, isMobile: sidebarIsMobileHook } = useSidebar(); 
+  const logoCacheBuster = `v=${new Date().getTime()}`;
 
   return (
     <Sidebar collapsible="icon">
        <SidebarHeader className="p-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-1.5 group-data-[collapsible=icon]:hidden"> {/* Adjusted gap */}
-            <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
+            <Image src={`/logo.png?${logoCacheBuster}`} alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
             <span className="text-lg font-semibold text-primary tracking-wide">{APP_NAME}</span> {/* Changed text-foreground to text-primary */}
           </Link>
           <div className="hidden group-data-[collapsible=icon]:block">
              <Link href="/" className="flex items-center"> {/* Gap removed/irrelevant as text is hidden */}
-                <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
+                <Image src={`/logo.png?${logoCacheBuster}`} alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
              </Link>
           </div>
           <div className="md:hidden">
@@ -60,4 +61,3 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
-

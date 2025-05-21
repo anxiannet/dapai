@@ -8,6 +8,7 @@ import { APP_NAME } from '@/lib/constants';
 
 export function AppHeader() {
   const { isMobile } = useSidebar();
+  const logoCacheBuster = `v=${new Date().getTime()}`;
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -15,7 +16,7 @@ export function AppHeader() {
         <div className="flex items-center gap-2">
           {(isMobile) && <SidebarTrigger />}
           <Link href="/" className="flex items-center gap-1.5"> {/* Adjusted gap */}
-            <Image src="/logo.png" alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
+            <Image src={`/logo.png?${logoCacheBuster}`} alt={`${APP_NAME} Logo`} width={36} height={36} className="h-9 w-9" />
             <span className="text-xl font-bold text-primary tracking-wide">{APP_NAME}</span> {/* Changed text-foreground to text-primary */}
           </Link>
         </div>
@@ -27,4 +28,3 @@ export function AppHeader() {
     </header>
   );
 }
-
