@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from 'next/image';
@@ -19,7 +18,7 @@ import Link from "next/link";
 
 export function AppSidebar() {
   const { setOpenMobile, isMobile: sidebarIsMobileHook } = useSidebar(); 
-  const logoCacheBuster = `v=${new Date().getTime()}`;
+  // const logoCacheBuster = `v=${new Date().getTime()}`; // Removed for stability and to prevent hydration issues
 
   return (
     <Sidebar collapsible="icon">
@@ -27,21 +26,21 @@ export function AppSidebar() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center group-data-[collapsible=icon]:hidden">
             <Image 
-              src={`/logo.png?${logoCacheBuster}`} 
+              src="/logo.png" 
               alt={`${APP_NAME} Logo`} 
-              width={36} 
-              height={36} 
-              className="h-9 w-auto" // Changed w-9 to w-auto
+              width={300} 
+              height={131} 
+              className="h-9 w-auto" 
             />
           </Link>
           <div className="hidden group-data-[collapsible=icon]:block">
              <Link href="/" className="flex items-center">
                 <Image 
-                  src={`/logo.png?${logoCacheBuster}`} 
+                  src="/logo.png" 
                   alt={`${APP_NAME} Logo`} 
-                  width={36} 
-                  height={36} 
-                  className="h-9 w-auto" // Changed w-9 to w-auto
+                  width={300} 
+                  height={131}
+                  className="h-9 w-auto"
                 />
              </Link>
           </div>
